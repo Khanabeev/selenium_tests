@@ -2,12 +2,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.alert import Alert
 from typing import List
 
 
 class SeleniumBase:
     def __init__(self, driver):
         self.driver = driver
+        self.alert = Alert(self.driver)
         self.__wait = WebDriverWait(driver, 15, 0.3)
 
     def __get_selenium_by(self, find_by: str) -> dict:
@@ -55,3 +57,6 @@ class SeleniumBase:
     def get_element_by_text(self, elements: List[WebElement], name: str) -> WebElement:
         name = name.lower()
         return[element for element in elements if element.text.lower() == name][0]
+
+    def accept_alert(self):
+        self.alert.accept()

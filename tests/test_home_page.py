@@ -6,6 +6,7 @@ from pom.home_page_nav import HomePageNav
 
 
 @pytest.mark.usefixtures('setup')
+@pytest.mark.skip
 class TestHomepage:
 
     def test_nav_links(self):
@@ -18,5 +19,6 @@ class TestHomepage:
             time.sleep(1)
 
         assert expected_links == actual_links, 'Validating Nav Links text'
+
 
 

@@ -26,7 +26,7 @@ def get_webdriver(get_chrome_option):
 def setup(request, get_webdriver):
     driver = get_webdriver
     driver = EventFiringWebDriver(driver, SeleniumListener())
-    url = 'https://coupay.co.uk/'
+    url = 'https://techstepacademy.com/trial-of-the-stones'
     if request.cls is not None:
         request.cls.driver = driver
     driver.get(url)
